@@ -1,4 +1,4 @@
-FROM python:3.9.0a5-alpine3.10
+FROM python:3.8.10-alpine
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
@@ -8,6 +8,7 @@ COPY . /code/
 
 WORKDIR /code
 
+RUN apk add -u gcc musl-dev
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN python manage.py migrate
