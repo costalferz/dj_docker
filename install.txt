@@ -1,12 +1,17 @@
-1. build docker image 
-docker build -t dj_docker .
-2. login heroku
-heroku login
-3. check image docker
-docker ps 
-4. heroku login to container
-heroku container:login
-5. push image to heroku_app
-heroku container:push <image> -a=<heroku_app>
-6. release heroku_app
-heroku container:release dj_docker -a=djdocker11
+1. build docker image : docker build -t dj_docker .
+    docker login 
+    1.1 docker tag image  image:tag
+    1.2 docker push  image:tag
+2. login heroku : heroku login
+
+3. check image docker : docker ps 
+
+4. heroku login to container : heroku container:login
+
+
+5. push image to heroku_app : heroku container:push web -a <heroku_app>
+    5.1 add value : heroku config:add <KEY>=<VALUE> -a <heroku_app>
+    5.2 get value : heroku config:get <KEY> -a <heroku_app>
+6. release heroku_app : heroku container:release web -a=<heroku_app>
+
+fast-citadel-04679
