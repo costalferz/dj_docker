@@ -1,0 +1,12 @@
+1. build docker image 
+docker build -t dj_docker .
+2. login heroku
+heroku login
+3. check image docker
+docker ps 
+4. heroku login to container
+heroku container:login
+5. push image to heroku_app
+heroku container:push <image> -a=<heroku_app>
+6. release heroku_app
+heroku container:release dj_docker -a=djdocker11
